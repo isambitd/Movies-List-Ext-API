@@ -1,0 +1,21 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+{% if all_items %}
+{% for things in all_items %}
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <h5 class="card-title">{{things.title}}</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text text-secondary">{{things.description}}</p>
+    </div>
+    <div class="card-footer">
+        {% for p in things.people %}
+        <span class="badge badge-secondary">{{p.name}}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}
